@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Río Yaqui - Restauración del Agua</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <!-- Canvas principal del juego -->
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- Interfaz de usuario -->
+        <div id="ui" class="ui-container">
+            <div id="statsBar" class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-label">💧 Agua</span>
+                    <span id="waterCount" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">🌱 Árboles</span>
+                    <span id="treesCount" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">🗑 Limpieza</span>
+                    <span id="trashCount" class="stat-value">0</span>
+                </div>
+                <div class="stat-item progress-bar">
+                    <span class="stat-label">Progreso</span>
+                    <div class="progress-container">
+                        <div id="progressBar" class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pantalla de inicio -->
+            <div id="startScreen" class="screen screen-active">
+                <div class="screen-content">
+                    <h1 class="title">Río Yaqui</h1>
+                    <p class="subtitle">Restaura el agua, protege la vida</p>
+                    <div class="buttons-group">
+                        <button id="startBtn" class="btn btn-primary">Comenzar</button>
+                        <button id="controlsBtn" class="btn btn-secondary">Controles</button>
+                        <button id="creditsBtn" class="btn btn-secondary">Créditos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pantalla de controles -->
+            <div id="controlsScreen" class="screen">
+                <div class="screen-content">
+                    <h2>Controles</h2>
+                    <div class="controls-info">
+                        <h3>🖥️ Computadora</h3>
+                        <p><strong>WASD</strong> o <strong>Flechas</strong> para moverte</p>
+                        <p>Acércate a los elementos para interactuar</p>
+                        
+                        <h3>📱 Móvil</h3>
+                        <p><strong>Joystick virtual</strong> para moverte</p>
+                        <p>Acércate a los elementos para interactuar</p>
+                        
+                        <h3>🎮 Objetivo</h3>
+                        <p>Restaura el Río Yaqui recolectando agua, plantando árboles y limpiando la contaminación</p>
+                    </div>
+                    <button id="backFromControls" class="btn btn-primary">Atrás</button>
+                </div>
+            </div>
+
+            <!-- Pantalla de créditos -->
+            <div id="creditsScreen" class="screen">
+                <div class="screen-content">
+                    <h2>Créditos</h2>
+                    <div class="credits-info">
+                        <p><strong>Desarrollado para:</strong> Proyecto Educativo Yaqui</p>
+                        <p><strong>Tema:</strong> Defensa del Agua y Cultura Yaqui</p>
+                        <p><strong>Tecnología:</strong> HTML5, CSS3, JavaScript puro</p>
+                        <p style="margin-top: 20px; font-size: 12px; opacity: 0.7;">
+                            Este juego busca sensibilizar sobre la importancia del Río Yaqui 
+                            y la lucha histórica del Pueblo Yaqui por la defensa del agua.
+                        </p>
+                    </div>
+                    <button id="backFromCredits" class="btn btn-primary">Atrás</button>
+                </div>
+            </div>
+
+            <!-- Pantalla de evento -->
+            <div id="eventModal" class="modal">
+                <div class="modal-content">
+                    <h3 id="eventTitle">Evento</h3>
+                    <p id="eventText">Descripción del evento</p>
+                    <button id="eventBtn" class="btn btn-primary">Continuar</button>
+                </div>
+            </div>
+
+            <!-- Pantalla de final -->
+            <div id="endScreen" class="screen">
+                <div class="screen-content">
+                    <div class="end-animation" id="endAnimation">
+                        <div class="water-wave"></div>
+                        <div class="water-wave"></div>
+                        <div class="water-wave"></div>
+                    </div>
+                    <h2>¡Felicidades!</h2>
+                    <p class="end-message">
+                        Gracias por ayudar al Pueblo Yaqui.<br>
+                        Cuidar el agua significa proteger la cultura,<br>
+                        la naturaleza y el futuro.
+                    </p>
+                    <button id="restartBtn" class="btn btn-primary">Volver a Jugar</button>
+                </div>
+            </div>
+
+            <!-- Joystick virtual para móvil -->
+            <div id="joystickContainer" class="joystick-container">
+                <div id="joystickBase" class="joystick-base">
+                    <div id="joystickStick" class="joystick-stick"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/audio.js"></script>
+    <script src="js/world.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
